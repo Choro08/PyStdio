@@ -6,4 +6,6 @@ Implements a lot of functionality from Javascript.
 Makes you life in Python easier.
 
 # How to use:
+```py
 from stdio import *
+```
