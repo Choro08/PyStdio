@@ -116,7 +116,7 @@ def isTrulyEven(num: int, limit: int = 999999) -> bool:
 
     return true
 
-def procrastinate(t) -> None:
+def procrastinate(t: int | float = 1) -> None:
     '''
     Stops the execution of the program for a set time in seconds
     so you can procrastinate while the code runs. Is just an 
