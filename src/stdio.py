@@ -139,6 +139,3 @@ def basicAhh():
     '''
 
     println("Hello World!")
-
-
-println("Kajbus\n")
