@@ -1,8 +1,10 @@
 import sys
+import time
 import random
 
 MIN_NUMBER = 5e-324
 FUNNY_NUMBER = random.choice([69, 42, 420, 25.8069758011, 96, 288, 77])
+MAX_SPEED = 299_792_458
 
 class TypeMaybe:
     def __init__(self) -> None:
@@ -12,7 +14,15 @@ class TypeMaybe:
         return random.choice([true, false])
     
 class InvalidStringError(Exception):
-    def __init__(self, msg: str) -> None:
+    def __init__(self, msg: str = "String is invalid.") -> None:
+        super().__init__(msg)
+
+class Error420(Exception):
+    def __init__(self, msg: str = "You too high to operate.") -> None:
+        super().__init__(msg)
+
+class UDumbError(Exception):
+    def __init__(self, msg: str = "U just ain't built for this.") -> None:
         super().__init__(msg)
 
 class Queue:
@@ -37,7 +47,7 @@ def println(line: any) -> None:
     '''
     Outputs a line in the console that the program is running inside.
     If the user enters a string literal with multiple lines the program will
-    throw an SyntaxError
+    throw an InvalidStringError.
     '''
 
     if "\n" in str(line): 
@@ -45,6 +55,7 @@ def println(line: any) -> None:
     
     else:
         sys.stdout.write(f"{line}\n")
+        return
 
 def part(num: float | int) -> float | int:
     '''
@@ -105,3 +116,29 @@ def isTrulyEven(num: int, limit: int = 999999) -> bool:
 
     return true
 
+def procrastinate(t) -> None:
+    '''
+    Stops the execution of the program for a set time in seconds
+    so you can procrastinate while the code runs. Is just an 
+    extension of time.sleep().
+    '''
+
+    if type(t) not in [float, int]:
+        raise TypeError("Argument 't' is not a float or int.")
+    
+    else:
+        println(f"Procrastinating for {t}s...")
+        time.sleep(t)
+
+        return
+
+def basicAhh():
+    '''
+    Does what every basic ahh starter program does.
+    **Hint, it prints Hello world!**
+    '''
+
+    println("Hello World!")
+
+
+println("Kajbus\n")
